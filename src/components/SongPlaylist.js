@@ -1,25 +1,26 @@
-import { createRandomMovie } from '../data';
+import { createRandomSong } from '../data';
 
-function MoviePlaylist() {
+function SongPlaylist() {
   // To Do:
-  // Get list of movies
-  const moviePlaylist = [];
+  // Get list of songs
+  const songPlaylist = [];
 
-  const handleMovieAdd = (movie) => {
+  const handleSongAdd = (song) => {
     // To Do:
-    // Add movie to list of movies
+    // Add song to list of songs
+    console.log(song);
   };
-  const handleMovieRemove = (movie) => {
+  const handleSongRemove = (song) => {
     // To Do:
-    // Remove movie from list of movies
+    // Remove song from list of songs
   };
 
-  const renderedMovies = moviePlaylist.map((movie) => {
+  const renderedSongs = songPlaylist.map((song) => {
     return (
-      <li key={movie}>
-        {movie}
+      <li key={song}>
+        {song}
         <button
-          onClick={() => handleMovieRemove(movie)}
+          onClick={() => handleSongRemove(song)}
           className="button is-danger"
         >
           X
@@ -31,19 +32,19 @@ function MoviePlaylist() {
   return (
     <div className="content">
       <div className="table-header">
-        <h3 className="subtitle is-3">Movie Playlist</h3>
+        <h3 className="subtitle is-3">Song Playlist</h3>
         <div className="buttons">
           <button
-            onClick={() => handleMovieAdd(createRandomMovie())}
+            onClick={() => handleSongAdd(createRandomSong())}
             className="button is-link"
           >
-            + Add Movie to Playlist
+            + Add Song to Playlist
           </button>
         </div>
       </div>
-      <ul>{renderedMovies}</ul>
+      <ul>{renderedSongs}</ul>
     </div>
   );
 }
 
-export default MoviePlaylist;
+export default SongPlaylist;

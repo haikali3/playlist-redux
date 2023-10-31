@@ -16,6 +16,7 @@ export default function App() {
       <MoviePlaylist />
       <hr />
       <SongPlaylist />
+      <hr />
     </div>
   );
 }
