@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Movies and Songs Playlist with Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implemented with [React Redux]([https://github.com/facebook/create-react-app](https://react-redux.js.org/)).
 
 ## Available Scripts
 
