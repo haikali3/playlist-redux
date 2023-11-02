@@ -1,52 +1,52 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+const moviesSlice = createSlice({
+  name: 'movie',
+  initialState: [],
+  reducers: {
+    addMovie: (state, action) => {
+      state.push(action.payload);
+    },
+    removeMovie: (state, action) => {
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
+    },
+    reset(state, action) {
+      return [];
+    },
+  },
+});
+
 // Define a slice
 const songsSlice = createSlice({
-  name: 'songs',
-  initialState: {
-    songs: [],
-    currentSong: null,
-  },
+  name: 'song',
+  initialState: [],
   reducers: {
-    // Reducers are functions that determine how the state changes
-    // 'song' + '/' + 'addSong' = 'song/addSong'
     addSong: (state, action) => {
-      state.songs.push(action.payload);
+      state.push(action.payload);
     },
-    // 'song' + '/' + 'removeSong' = 'song/removeSong'
     removeSong: (state, action) => {
-      state.songs = state.songs.filter((song) => song.id !== action.payload);
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
     },
-    setCurrentSong: (state, action) => {
-      state.currentSong = action.payload;
-    },
+  },
+  extraReducers(builder) {
+    builder.addCase(moviesSlice.actions.reset, (state, action) => {
+      return [];
+    });
   },
 });
 
 // Create a store with the slice
 const store = configureStore({
   reducer: {
-    song: songsSlice.reducer,
+    songs: songsSlice.reducer,
+    movies: moviesSlice.reducer,
   }, // The reducer is the slice
 });
 
-// console.log(
-// songsSlice.actions.addSong({ id: 1, title: 'Roses', artist: 'OutKast' })
-// );
-
-const startingState = store.getState();
-console.log(JSON.stringify(startingState));
-
-store.dispatch({
-  type: 'songs/addSong',
-  payload: {
-    id: 1,
-    title: 'Roses',
-    artist: 'OutKast',
-  },
-});
-
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+console.log(store.getState());
 
 export { store };
+export const { addSong, removeSong } = songsSlice.actions;
+export const { addMovie, removeMovie, reset } = moviesSlice.actions;
