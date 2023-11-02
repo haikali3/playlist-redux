@@ -1,6 +1,6 @@
 # Movies and Songs Playlist with Redux
 
-This project implemented with [React Redux]([https://github.com/facebook/create-react-app](https://react-redux.js.org/)).
+This project implemented with [React Redux](https://react-redux.js.org/).
 
 ## Available Scripts
 
